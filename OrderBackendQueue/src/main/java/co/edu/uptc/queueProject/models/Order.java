@@ -1,6 +1,8 @@
 package co.edu.uptc.queueProject.models;
 
 
+import java.util.Queue;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +11,6 @@ import lombok.Setter;
 public class Order {
     private String clientName;
     private String clientAdress;
-    private int typeOrder;
-    private int quantity;
+    private Queue<Product> products;
     private int turn;
 }

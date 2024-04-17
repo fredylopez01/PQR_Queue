@@ -7,7 +7,7 @@ import co.edu.uptc.queueProject.services.OrderService;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
+import java.util.LinkedList;
 import java.util.Queue;
 
 import org.springframework.http.HttpStatus;
@@ -32,13 +32,15 @@ public class OrderController {
 
     @PostMapping("addOrder")
     public ResponseEntity<Object> addOrder(@RequestBody Order order) {
-        orderService.addOrder(order);
+        LinkedList<Order> orders = orderService.loadDates();
+        orderService.addOrder(orders, order);
         return ResponseEntity.status(HttpStatus.OK).body(order);
     }
 
     @DeleteMapping("/sendOrder")
     public ResponseEntity<Object> deleteOrder() {
-        Order order = orderService.deleteOrder();
+        LinkedList<Order> orders = orderService.loadDates();
+        Order order = orderService.deleteOrder(orders);
         return ResponseEntity.ok().body(order);
     }
 
