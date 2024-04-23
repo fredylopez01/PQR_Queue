@@ -1,0 +1,185 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 100vw;
+    padding: 20px;
+    height: 100vh;
+}
+
+.header {
+    background-color: #004080;
+    color: white;
+    padding: 10px 0;
+
+}
+
+.header button {
+    background-color: #004080;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.header button:hover {
+    background-color: #007bff;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.btnClaim {
+    margin-left: auto;
+  }
+
+.inbox {
+    font-family: Arial, sans-serif;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-header,
+.table-row {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 3fr 2fr;
+    text-align: center;
+}
+
+.header__item,
+.table-data {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+.table-header {
+    background-color: #eaeaea;
+    font-weight: bold;
+}
+
+.noClaims h2 {
+    text-align: center;
+    color: #999;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e5e5e5;
+    padding: 15px;
+}
+
+.modal-title {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}
+
+.close {
+    color: #666;
+    text-shadow: none;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5;
+    justify-content: center;
+    padding: 15px;
+    text-align: right;
+    align-items: center;
+}
+
+.btn-danger {
+    background-color: #00a249;
+    color: #fff;
+}
+
+.modal-body h5 {
+    color: #333;
+    font-size: 16px;
+}
+
+.modal-body p {
+    color: #666;
+    font-size: 14px;
+}
+
+.modal-body textarea {
+    width: 100%;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem;
+}
+
+.modal-title {
+    margin: 0;
+    color: #495057;
+    font-size: 1.5rem;
+}
+
+.close {
+    color: #6c757d;
+    text-shadow: none;
+    outline: none;
+}
+
+
+.modal-body {
+    padding: 20px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+}
+
+.modal-footer {
+    border-top: 1px solid #e5e5e5;
+    justify-content: center;
+    padding: 15px;
+    text-align: right;
+    align-items: center;
+}
+
+.sendButton {
+
+    background-color: #00a249;
+    color: #fff;
+    border-bottom: 2px;
+    cursor: pointer;
+    margin: 20px;
+    margin-left: 195px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+
+}

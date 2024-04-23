@@ -1,0 +1,99 @@
+<body>
+   <div class="header">
+      <button (click)="onLastClaim()" [disabled]="claims.length == 0" type="button" class="btnNav btn btn-primary"
+         data-toggle="modal" data-target="#deleteFirstClaim">Responder PQR</button>
+      <button type="button" class="btnClaim" data-toggle="modal" data-target="#sendClaim">Hacer PQR</button>
+   </div>
+
+   <div class="inbox">
+      <h1>Peticiones quejas y reclamos.</h1>
+      <div class="table">
+         <div class="table-header">
+            <div class="header__item">Turno</div>
+            <div class="header__item">Nombre</div>
+            <div class="header__item">Correo</div>
+            <div class="header__item">Asunto</div>
+         </div>
+         <div class="table-content">
+            <div class="table-row" *ngFor="let message of claims">
+               <div class="table-data">{{message.turn}}</div>
+               <div class="table-data">{{message.name}}</div>
+               <div class="table-data">{{message.email}}</div>
+               <div class="table-data">{{message.matter}}</div>
+            </div>
+            <div *ngIf="claims?.length == 0" class="noClaims">
+               <h2>No hay reclamos</h2>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade" id="deleteFirstClaim" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="deleteModelLabel">Responer PQR</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <h5>Nombre:</h5>
+               <p>{{lastMessage?.name}}</p>
+               <h5>Cedula:</h5>
+               <p>{{lastMessage?.id}}</p>
+               <h5>Numero de cuenta:</h5>
+               <p>{{lastMessage?.accountNumber}}</p>
+               <h5>E-mail:</h5>
+               <p>{{lastMessage?.email}}</p>
+               <h5>Asunto:</h5>
+               <p>{{lastMessage?.matter}}</p>
+               <h5>PQR::</h5>
+               <p>{{lastMessage?.claim}}</p>
+               <label for="textMessage">Respuesta:</label>
+               <textarea id="textMessage" ngModel name="textMessage" rows="4" placeholder="Escribe tu mensaje aquí"
+                  required></textarea>
+               <div class="modal-footer">
+                  <button (click)="onDeleteClaim()" class="btn btn-danger" data-dismiss="modal">Enviar
+                     respuesta</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="modal fade" id="sendClaim" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+         <div class="modal-content form">
+            <div class="container">
+               <div class="modal-header">
+                  <h3 class="modal-title" id="deleteModelLabel">Enviar PQR</h3>
+                  <button id="close" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <form #addMessage="ngForm" (ngSubmit)="onSendClaim(addMessage)">
+                  <label for="name">Nombre:</label>
+                  <input type="text" id="name" ngModel name="name" placeholder="Nombre y apellido" required>
+                  <label for="id">Cedula:</label>
+                  <input type="text" id="id" ngModel name="id" placeholder="Numero de documento" required>
+                  <label for="account">Numero de cuenta:</label>
+                  <input type="text" id="account" ngModel name="accountNumber" placeholder="Numero de cuenta" required>
+                  <label for="matter">Asunto:</label>
+                  <input type="text" id="matter" ngModel name="matter" placeholder="Peticion/Queja/Reclamo" required>
+                  <label for="email">E-mail:</label>
+                  <input type="text" id="email" ngModel name="email" placeholder="ejemplo@mail.com" required>
+                  <label for="claim">Peticion queja o reclamo:</label>
+                  <textarea id="claim" ngModel name="claim" rows="4" placeholder="..."
+                     required></textarea>
+                  <button class="sendButton" [disabled]="addMessage.invalid" type="submit">Enviar</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+
+
+</body>
